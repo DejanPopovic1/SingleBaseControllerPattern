@@ -9,6 +9,8 @@ namespace BestPractice.Database
         public DbSet<Movie> Movies { get; set; }
         public DbSet<ExtendedComponent> ExtendedComponents { get; set; }
 
+        public DbSet<Extended2Component> Extended2Components { get; set; }
+
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
 

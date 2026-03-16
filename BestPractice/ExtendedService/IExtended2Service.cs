@@ -3,7 +3,7 @@ using BestPractice.Inputs;
 
 namespace BestPractice.ExtendedServiceNamespace;
 
-public interface IExtendedService <TCreateInput, TUpdateInput, TEntity, TEntityId>
+public interface IExtended2Service <TCreateInput, TUpdateInput, TEntity, TEntityId>
     where TCreateInput : CreateBaseInput
     where TUpdateInput : UpdateBaseInput
     where TEntity : ComponentBase 
@@ -17,14 +17,14 @@ public interface IExtendedService <TCreateInput, TUpdateInput, TEntity, TEntityI
 }
 
 
-public class ExtendedService <TCreateInput, TUpdateBaseInput, TEntity, TEntityId> : 
-    IExtendedService <TCreateInput, TUpdateBaseInput, TEntity, TEntityId> 
+public class Extended2Service <TCreateInput, TUpdateBaseInput, TEntity, TEntityId> : 
+    IExtended2Service <TCreateInput, TUpdateBaseInput, TEntity, TEntityId> 
     where TCreateInput : CreateBaseInput 
     where TEntity : ComponentBase 
     where TUpdateBaseInput : UpdateBaseInput
 {
     IEntityRepository<ExtendedComponent, TEntityId> _repository;
-    public ExtendedService(IEntityRepository<ExtendedComponent, TEntityId> repository)
+    public Extended2Service(IEntityRepository<ExtendedComponent, TEntityId> repository)
     {
         _repository = repository;
     }

@@ -26,10 +26,10 @@ namespace BestPractice
             builder.Services.AddScoped<IEntityRepository<Actor, Guid>, ActorRepository>();
             builder.Services.AddScoped<IEntityRepository<Movie, Guid>, MovieRepository>();
 
-            builder.Services.AddTransient(typeof(IEntityRepository<,>), typeof(EntityRepository<,>));
+            builder.Services.AddScoped(typeof(IEntityRepository<,>), typeof(EntityRepository<,>));
             //builder.Services.AddScoped<IEntityRepository<ExtendedComponent, Guid>, ExtendedRepository>();
 
-            builder.Services.AddTransient(typeof(IExtendedService<, , , >), typeof(ExtendedService<, , , >));
+            builder.Services.AddScoped(typeof(IExtendedService<, , , >), typeof(ExtendedService<, , , >));
             //builder.Services.AddScoped<IExtendedService<ExtendedCreateInput, ExtendedUpdateInput, ExtendedComponent, Guid>, ExtendedService<ExtendedCreateInput, ExtendedUpdateInput, ExtendedComponent, Guid>>();
 
 

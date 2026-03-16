@@ -44,14 +44,14 @@ public class ExtendedController : BaseController<
 
 
 
-    [HttpGet(Name = "GetExtended")]
+    [HttpGet(Name = "GetExtendedTwo")]
     public async Task<IActionResult> Get(Guid id)
     {
         return await base.GetAsync(x => x.Where(y => y.Id == id));
         //return new EmptyResult();
     }
 
-    [HttpPost(Name = "PostExtended")]
+    [HttpPost(Name = "PostExtendedTwo")]
     public async Task<IActionResult> Create(ExtendedCreateInput input) {
         return base.Create(input);
         //return new EmptyResult();
