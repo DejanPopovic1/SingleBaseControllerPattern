@@ -24,8 +24,8 @@ public class ExtendedService <TCreateInput, TUpdateBaseInput, TEntity, TEntityId
     where TUpdateBaseInput : UpdateBaseInput
 {
     //IEntityRepository<ExtendedComponent, TEntityId> _repository;
-    IEntityRepository<ExtendedComponent, TEntityId> _repository;
-    public ExtendedService(IEntityRepository<ExtendedComponent, TEntityId> repository)
+    IEntityRepository<TEntity, TEntityId> _repository;
+    public ExtendedService(IEntityRepository<TEntity, TEntityId> repository)
     {
         _repository = repository;
     }
@@ -37,7 +37,7 @@ public class ExtendedService <TCreateInput, TUpdateBaseInput, TEntity, TEntityId
         component.test1 = input.test1;
         component.test2 = input.test2;
         component.test3 = input.test3;
-        _repository.Add(component as ExtendedComponent);
+        _repository.Add(component as TEntity);
         _repository.SaveChanges();
         return component;
     }
