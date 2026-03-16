@@ -37,6 +37,8 @@ namespace BestPractice
 
 
             builder.Services.AddScoped<IComponentFactory<ExtendedComponent, ExtendedObject>, ExtendedFactory>();
+            
+            builder.Services.AddScoped<IComponentFactory<Extended2Component, Extended2Object>, Extended2Factory>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

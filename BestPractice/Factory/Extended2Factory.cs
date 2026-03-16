@@ -3,7 +3,7 @@ using BestPractice.Outputs;
 
 namespace BestPractice.Factory;
 
-public class Extended2Factory : IComponent2Factory<Extended2Component, Extended2Object>
+public class Extended2Factory : IComponentFactory<Extended2Component, Extended2Object>
 {
     public Extended2Object Make(Extended2Component component)
     {

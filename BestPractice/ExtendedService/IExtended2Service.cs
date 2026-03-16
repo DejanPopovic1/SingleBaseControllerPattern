@@ -23,8 +23,8 @@ public class Extended2Service <TCreateInput, TUpdateBaseInput, TEntity, TEntityI
     where TEntity : ComponentBase 
     where TUpdateBaseInput : UpdateBaseInput
 {
-    IEntityRepository<ExtendedComponent, TEntityId> _repository;
-    public Extended2Service(IEntityRepository<ExtendedComponent, TEntityId> repository)
+    IEntityRepository<Extended2Component, TEntityId> _repository;
+    public Extended2Service(IEntityRepository<Extended2Component, TEntityId> repository)
     {
         _repository = repository;
     }
@@ -36,7 +36,7 @@ public class Extended2Service <TCreateInput, TUpdateBaseInput, TEntity, TEntityI
         component.test1 = input.test1;
         component.test2 = input.test2;
         component.test3 = input.test3;
-        _repository.Add(component as ExtendedComponent);
+        _repository.Add(component as Extended2Component);
         _repository.SaveChanges();
         return component;
     }

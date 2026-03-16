@@ -23,6 +23,7 @@ public class ExtendedService <TCreateInput, TUpdateBaseInput, TEntity, TEntityId
     where TEntity : ComponentBase 
     where TUpdateBaseInput : UpdateBaseInput
 {
+    //IEntityRepository<ExtendedComponent, TEntityId> _repository;
     IEntityRepository<ExtendedComponent, TEntityId> _repository;
     public ExtendedService(IEntityRepository<ExtendedComponent, TEntityId> repository)
     {
