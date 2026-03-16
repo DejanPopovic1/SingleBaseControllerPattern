@@ -29,7 +29,11 @@ namespace BestPractice
             builder.Services.AddScoped(typeof(IEntityRepository<,>), typeof(EntityRepository<,>));
             //builder.Services.AddScoped<IEntityRepository<ExtendedComponent, Guid>, ExtendedRepository>();
 
-            builder.Services.AddScoped(typeof(IExtendedService<, , , >), typeof(ExtendedService<, , , >));
+            builder.Services.AddScoped(typeof(IExtendedService<Extended2CreateInput, Extended2UpdateInput, Extended2Component, Guid >), typeof(ExtendedService<Extended2CreateInput, Extended2UpdateInput, Extended2Component, Guid >));
+
+            builder.Services.AddScoped(typeof(IExtendedService<ExtendedCreateInput, ExtendedUpdateInput, ExtendedComponent, Guid>), typeof(ExtendedService<ExtendedCreateInput, ExtendedUpdateInput, ExtendedComponent, Guid>));
+
+            //builder.Services.AddScoped(typeof(IExtendedService<CreateBaseInput, UpdateBaseInput, ComponentBase, Guid>), typeof(ExtendedService<CreateBaseInput, UpdateBaseInput, ComponentBase, Guid>));
             //builder.Services.AddScoped<IExtendedService<ExtendedCreateInput, ExtendedUpdateInput, ExtendedComponent, Guid>, ExtendedService<ExtendedCreateInput, ExtendedUpdateInput, ExtendedComponent, Guid>>();
 
 
