@@ -68,8 +68,8 @@ public class BaseController<
         TUpdateInput input
     )
     {
-        var component = await _service.UpdateAsync(id, input);
-        var result = _factory.Make(component as TEntity);
+        ComponentBase component = await _service.UpdateAsync(id, input);
+        TObject result = _factory.Make(component as TEntity);
         return Ok(ApiResponseHelper.CreateSuccessResponse(result));
     }
 

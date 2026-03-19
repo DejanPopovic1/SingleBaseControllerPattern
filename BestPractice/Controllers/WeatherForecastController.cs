@@ -32,12 +32,22 @@ namespace BestPractice.Controllers
 
         public async Task PostActor(ExtendedCreateInput input)
         {
-            await _context.Movies.AddAsync(
-                new Movie()
-                {
-                    Name = "test",
-                    Budget = "1000000"
-                });
+            //await _context.Movies.AddAsync(
+            //    new Movie()
+            //    {
+            //        Name = "test",
+            //        Budget = "1000000"
+            //    });
+
+
+            await _context.Actors.AddAsync(
+               new Actor()
+               {
+                   Name = "test",
+                   AnnualIncome = "1000000",
+                   AdditionalInformation = JsonDocument.Parse(JsonSerializer.Serialize(new Dictionary<string, string>() { { "key1", "value1" }, { "key2", "value2"} }))
+               });
+
             _context.SaveChanges();
         }
 
