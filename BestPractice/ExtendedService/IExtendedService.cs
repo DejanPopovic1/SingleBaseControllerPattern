@@ -51,7 +51,10 @@ public class ExtendedService <TCreateInput, TUpdateBaseInput, TEntity, TEntityId
 
     protected async Task UpdateBaseValues(ComponentBase component, UpdateBaseInput input)
     {
-
+        component.test1 = input.test1;
+        component.test2 = input.test2;
+        component.test3 = input.test3;
+        _repository.SaveChanges();
     }
 
 }

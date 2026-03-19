@@ -60,7 +60,6 @@ public class BaseController<
             ApiResponse<dynamic> response = ApiResponseHelper.CreateErrorResponse(HttpStatusCode.Conflict, ex.Message, ex);
             return Conflict(response);
         }
-        // return new EmptyResult();
     }
 
     [NonAction]
@@ -69,24 +68,21 @@ public class BaseController<
         TUpdateInput input
     )
     {
-        //var component = await _service.UpdateAsync(id, input);
-        //var result = _factory.Make(component);
-        //return Ok(ApiResponseHelper.CreateSuccessResponse(result));
-        return new EmptyResult();
+        var component = await _service.UpdateAsync(id, input);
+        var result = _factory.Make(component as TEntity);
+        return Ok(ApiResponseHelper.CreateSuccessResponse(result));
     }
 
     protected async virtual Task<IActionResult> ListAsync(Func<IQueryable<TEntity>, IQueryable<TEntity>> filter, bool disableTracking = false, bool isIncludeDeleted = false)
     {
-        //List<TEntity> components = await _entityRepository.FindAllByConditionAsync(filter, disableTracking);
-        //return Ok(ApiResponseHelper.CreateSuccessResponse(_factory.MakeMany(components)));
-        return new EmptyResult();
+        List<TEntity> components = await _entityRepository.FindAllByConditionAsync(filter, disableTracking);
+        return Ok(ApiResponseHelper.CreateSuccessResponse(_factory.MakeMany(components)));
     }
 
     protected async virtual Task<IActionResult> GetAsync(Func<IQueryable<TEntity>, IQueryable<TEntity>> filter, bool disableTracking = false, bool isIncludeDeleted = false)
     {
-        //var component = await _entityRepository.FindByConditionOrFailAsync(filter, disableTracking);
-        //return Ok(ApiResponseHelper.CreateSuccessResponse(_factory.Make(component)));
-        return new EmptyResult();
+        var component = await _entityRepository.FindByConditionOrFailAsync(filter, disableTracking);
+        return Ok(ApiResponseHelper.CreateSuccessResponse(_factory.Make(component)));
     }
 
 }

@@ -44,17 +44,27 @@ public class ExtendedController : BaseController<
 
 
 
-    [HttpGet(Name = "GetExtendedTwo")]
+    [HttpGet(Name = "GetExtended")]
     public async Task<IActionResult> Get(Guid id)
     {
         return await base.GetAsync(x => x.Where(y => y.Id == id));
-        //return new EmptyResult();
     }
 
-    [HttpPost(Name = "PostExtendedTwo")]
+    [HttpGet(Name = "ListExtended")]
+    public async Task<IActionResult> List(Guid id)
+    {
+        return await base.ListAsync(x => x.Where(y => true));
+    }
+
+    [HttpPut(Name = "UpdateExtended")]
+    public async Task<IActionResult> Update(Guid id, ExtendedUpdateInput input)
+    {
+        return await base.UpdateAsync(id, input);
+    }
+
+    [HttpPost(Name = "PostExtended")]
     public async Task<IActionResult> Create(ExtendedCreateInput input) {
         return base.Create(input);
-        //return new EmptyResult();
     }
 
 }
