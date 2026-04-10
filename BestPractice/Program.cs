@@ -3,6 +3,7 @@ using BestPractice.Database;
 using BestPractice.ExtendedServiceNamespace;
 using BestPractice.Factory;
 using BestPractice.Inputs;
+using BestPractice.Middleware;
 using BestPractice.Outputs;
 using BestPractice.services;
 using Microsoft.EntityFrameworkCore;
@@ -56,6 +57,8 @@ namespace BestPractice
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseMiddleware<ApiResponseMiddleware>();
 
             app.UseHttpsRedirection();
 

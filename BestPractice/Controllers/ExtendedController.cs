@@ -6,6 +6,7 @@ using BestPractice.Factory;
 using BestPractice.services;
 using System.Net;
 using BestPractice.ExtendedServiceNamespace;
+using BestPractice.Exceptions;
 
 namespace BestPractice.Controllers;
 
@@ -53,6 +54,8 @@ public class ExtendedController : BaseController<
     [HttpGet(Name = "ListExtended")]
     public async Task<IActionResult> List(Guid id)
     {
+        //throw new EntityAlreadyExistsException(typeof(ExtendedComponent), new { });
+        //throw new EntityNotFoundException(typeof(ExtendedComponent), new { });
         return await base.ListAsync(x => x.Where(y => true));
     }
 
